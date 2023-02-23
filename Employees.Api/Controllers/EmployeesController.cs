@@ -51,15 +51,5 @@ namespace Employees.Api.Controllers
                 ? StatusCode(StatusCodes.Status500InternalServerError, new { Message = "Error creating employee" })
                 : Ok(new { Message = "Employee created", HttpCode = HttpStatusCode.OK });
         }
-
-        [HttpPost]
-        public async Task<IActionResult> AddEmployeeWithLastName([FromBody] EmployeeDto employeeDto)
-        {
-            var response = await _services.AddEmployee(employeeDto);
-
-            return !response
-                ? StatusCode(StatusCodes.Status500InternalServerError, new { Message = "Error creating employee" })
-                : Ok(new { Message = "Employee created", HttpCode = HttpStatusCode.OK });
-        }
     }
 }

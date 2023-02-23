@@ -1,22 +1,17 @@
 ﻿using AutoMapper;
 using Employees.Api.Dtos;
 using Employees.Api.Mapper;
-using Employees.Api.Models;
 using Employees.Api.Services;
 using Employees.Api.Test.Mocks.Context;
-using Employees.Api.Test.Mocks.Data;
 using FakeItEasy;
 using FluentAssertions;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Employees.Api.Context;
 using Xunit;
 
 namespace Employees.Api.Test.Services
 {
     public class EmployeeServicesTest
     {
-        List<Employee> employees;
         private readonly IMapper mockMapper;
 
         public EmployeeServicesTest()

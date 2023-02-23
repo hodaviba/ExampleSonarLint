@@ -16,7 +16,7 @@ namespace Employees.Api.Test.Mocks.Context
             var databaseContext = new EmployeeContext(options);
             databaseContext.Database.EnsureCreated();
 
-            if (await databaseContext.Employees.CountAsync() <= 0)
+            if (await databaseContext.Employees.AnyAsync())
             {
                 foreach (var employee in await EmployeeData.GetEmployees())
                 {
