@@ -37,8 +37,6 @@ namespace Employees.Api.Controllers
                 return NotFound("Employee not found");
             }
 
-            var fullName = employee.Name + " " + employee.LastName;
-
             return Ok(employee);
         }
 
@@ -50,6 +48,16 @@ namespace Employees.Api.Controllers
             return !response
                 ? StatusCode(StatusCodes.Status500InternalServerError, new { Message = "Error creating employee" })
                 : Ok(new { Message = "Employee created", HttpCode = HttpStatusCode.OK });
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateEmployee([FromBody] EmployeeDto employeeDto)
+        {
+            var response = await _services.UpdateEmployee(employeeDto);
+
+            return !response
+                ? StatusCode(StatusCodes.Status500InternalServerError, new {message = "Error updating employee"})
+                : NoContent();
         }
     }
 }

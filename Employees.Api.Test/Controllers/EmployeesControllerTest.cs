@@ -21,7 +21,7 @@ namespace Employees.Api.Test.Controllers
         }
 
         [Fact]
-        public async void When_GetEmployees_ShouldReturnOK()
+        public async Task When_GetEmployees_ShouldReturnOK()
         {
             //Arrange
             employeeServices.Setup(m => m.GetEmployees()).Returns(EmployeeData.GetEmployees);
