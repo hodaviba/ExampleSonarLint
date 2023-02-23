@@ -10,5 +10,7 @@ namespace Employees.Api.Services
         Task<EmployeeDto> GetEmployeeById(int id);
 
         Task<bool> AddEmployee(EmployeeDto employeeDto);
+
+        Task<bool> UpdateEmployee(EmployeeDto employeeDto);
     }
 }

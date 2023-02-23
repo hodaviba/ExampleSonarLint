@@ -42,5 +42,19 @@ namespace Employees.Api.Services
 
             return true;
         }
+
+        public async Task<bool> UpdateEmployee(EmployeeDto employeeDto)
+        {
+            try
+            {
+                _context.Employees.Update(_mapper.Map<Employee>(employeeDto));
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }
